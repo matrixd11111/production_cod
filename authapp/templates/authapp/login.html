@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+<h3>Привет {{ user }}</h3>
+{% endif %}
+<form class="w-50" method="post" >
+{% csrf_token %}
+<input class="form-control" name="login" value="login"/>
+<input class="form-control" type="password" name="password" value="password"/>
+<input class="form-control" type="submit" value="login"/>
+</form>
+{% endblock%}

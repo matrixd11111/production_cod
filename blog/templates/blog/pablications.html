@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+{% for pablic in pablics %}
+<a href="{% url 'blog:description' pablic.id %}">{{ pablic.title }}</a>
+{% endfor %}
+{% endblock %}

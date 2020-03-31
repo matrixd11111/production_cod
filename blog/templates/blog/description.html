@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+<div class="list-group w-75" id="list-tab" role="tablist">
+  {% for descr in descriptions %}
+  <a class=""
+     id="list-home-list"
+     data-toggle="list"
+     href="#{{ descr.title }}"
+     role="tab"
+     aria-controls="home">{{ descr.title }}</a>
+</div>
+{% endfor %}
+{% endblock %}
+{% block content %}
+<div class="tab-content" id="nav-tabContent">
+  <div class="col-9" style="position: relative; height: 740px; overflow-y: scroll;"> 
+    {% for descr in descriptions %}
+    <div class="tab-pane fade show active"
+	 id="{{ descr.title }}"
+	 role="tabpanel"
+	 aria-labelledby="list-home-list">
+      <h1 class="text-center">{{ descr.title }}</h1>
+      <p>{{ descr.content }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock%}
+
+
+

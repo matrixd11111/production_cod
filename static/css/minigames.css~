@@ -1,0 +1,4 @@
+.tickets {
+    position: relative;
+    top: 32em;
+}

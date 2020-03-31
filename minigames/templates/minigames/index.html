@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static  %}
+
+{% block content %}
+<div class="row">
+  <div class="col">
+    <div class="card border-0" style="width: 12rem; background: #DFDFDF">
+      <img class="card-img-top rounded-circle" src="{% static 'images/loto.jpg' %}" alt="Loto">
+      <div class="card text-center border-0" style="background: #DFDFDF">
+	<h5 class="border-0" style="background: #DFDFDF">Лото</h5>
+	<a href="{% url 'minigames:lotogame' %}" class="btn" style="background: #DFDFDF">Играть</a>
+      </div>
+    </div>
+  </div>
+  <div class="col"></div>
+  <div class="col"></div>
+</div>
+{% endblock%}

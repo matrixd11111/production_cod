@@ -1,0 +1,69 @@
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery="full" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static "css/stylefiles.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/minigames.css" %}">
+    <title>
+      {% block title%}
+      {% endblock %}
+    </title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+	<div class="row text-center">
+	  <div class="col"><a href="{% url 'blog:sections' %}">My_Diary</a></div>
+	  <div class="col"><a href="{% url 'minigames:index' %}">Minigames</a></div>
+	  <div class="col"><a href="">Plan_Bellial</a></div>
+	  <div class="col"><a href="">Help</a></div>
+	</div>
+      </div>
+    </header>
+    <main>
+      <div class="container-fluid">
+	<div class="row">
+	  <div class="col-3">
+	    <nav class="nav flex-column">
+	      {% block sidebar %}
+	      {% endblock %}
+	    </nav>	    
+	  </div>
+	  <div class="col">
+	    {% block content %}
+	    {% endblock%}
+	  </div>
+      </div>
+    </main>
+    <footer class="fixed-bottom">
+      <div class="container">
+	<div class="row">
+	  <div class="col-12">
+	    <form action="">
+	      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		Where_to_send
+		{% block dropdownbutton %}
+		{% endblock %}
+	      </button>
+	      <div class="dropdown-menu">
+		<a class="dropdown-item" href="{% url 'blog:index' %}">Home</a>
+		<a class="dropdown-item" href="{% url 'authapp:login' %}">Login</a>
+		<a class="dropdown-item" href="{% url 'authapp:registred' %}">Registred</a>
+	      </div>
+	      <input class="w-75 rounded" name="send-masseges" type="text" />
+	      <input class="btn" type="submit" value="Send" />
+	    </form>
+	  </div>
+	</div>
+      </div>
+    </footer>
+    <script type="text/javascript" src="{% static 'js/minigames.js' %}"></script>
+  </body>
+</html>
+

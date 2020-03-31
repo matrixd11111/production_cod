@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+<ul class="navbar-nav">
+  {% for theme in themes %}
+  <li class="nav-item">
+    <a class="nav-link" href=" {% url 'blog:pablic' theme.id %}"> {{theme.title }}</a>
+    {% endfor %}
+</ul>
+{% endblock%}

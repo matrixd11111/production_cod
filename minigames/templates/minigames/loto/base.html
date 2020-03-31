@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static "bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "minigames.css" %}">
+    <title></title>
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+	<div class="col-12 col-sm-6 col-md-8">
+	  {% block rest %}
+	  {% endblock%}
+	</div>
+	<div class="col-6 col-md-4">
+	  {% block menu %}
+	  {% endblock%}
+	</div>
+      </div>	  
+      {% block content  %}
+      {% endblock%}
+    </div>
+    <script src="{% static 'minigames.js' %}"></script>
+
+  </body>
+</html>
+

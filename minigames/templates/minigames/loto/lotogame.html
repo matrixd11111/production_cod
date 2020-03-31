@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+<a href="{% url 'minigames:menu' 1  %}">Взять билет</a>
+<a href="{% url 'minigames:menu' 2  %}">Начать игру</a>
+<a href="{% url 'minigames:menu' 3  %}">Закончить игру</a>
+{% endblock%}
+
+{% block content %}
+<div class="row">
+  <div class="col">
+    {% if barrel.barrel_list|length > 30 %}
+    <!--данную реализацию заменить на jquery-->
+    <div class="gamego"></div>
+    <p class="getbarrel">
+      {{ barrel.barrel_pop }}
+      <button>{{ barrel.get_barrel }}</button>
+    </p>
+    {% endif %}
+  </div>
+</div>
+<div class="tickets">
+<div class="row">
+  <div class="col">
+    {% if ticket.ticket_list|length >= 1 %}
+      {% for i in ticket.ticket_list|slice:":2" %}
+      {% autoescape off %}{% cycle 1 2 as num %}{% endautoescape %}
+
+      <table class="table table-sm w-50 table-td">
+	{% for j in i %}
+	<tr class="table-tr">
+	  {% for x in j %}
+	  <td class="table-td">
+	    <a href="{% url 'minigames:chenge_ticket' x num %}">{{ x }}</a>
+	  </td>
+	  {% endfor %}
+	</tr>
+	{% endfor %}
+      </table>
+      {% endfor %}
+    {% endif %}
+  </div>
+  <div class="col">
+    {% if ticket.ticket_list|length >= 3 %}
+      {% for i in ticket.ticket_list|slice:"2:" %}
+      {% autoescape off %}{% cycle 3 4 as num %}{% endautoescape %}
+
+      <table class="table table-sm w-50 table-hover table-td">
+	{% for j in i %}
+	<tr class="table-tr">
+	  {% for x in j %}
+	  <td class="table-td">
+	    <a href="{% url 'minigames:chenge_ticket' x num %}">{{ x }}</a>
+	  </td>
+	  {% endfor %}
+	</tr>
+	{% endfor %}
+      </table>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+</div>
+{% endblock%}

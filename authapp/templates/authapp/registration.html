@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<form class="w-50" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input value="register" type="submit" class="form-control">
+</form>
+{% endblock%}
